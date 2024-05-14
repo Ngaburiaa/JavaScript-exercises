@@ -1,0 +1,18 @@
+let obj = {};
+obj[1] = 'One';
+obj['1'] = 'String One';
+
+console.log(obj[1]);
+console.log(obj['1']);
+console.log(obj[1] === obj['1']);
+
+console.log(obj[1]); output=====string one 
+This is because obj[1] consoles object at index 1
+
+console.log(obj['1']); output======string one 
+ This is because obj['1'] is the key and it value is string one
+
+
+
+console.log(obj[1] === obj['1']); output ========true
+ because object at index 1 is holds the key value of object which is true
