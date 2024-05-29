@@ -56,14 +56,14 @@ const users = [
     const popularPosts = user.posts.filter(post => post.likes >= 10);
     return { userId: user.id, posts: popularPosts };
   });
+  // console.log(popularPostsPerUser)
+  // const averageLikesPerUser = popularPostsPerUser.map(userPosts => {
+  //   const totalLikes = userPosts.posts.reduce((sum, post) => sum + post.likes, 0);
+  //   const averageLikes = userPosts.posts.length > 0 ? totalLikes / userPosts.posts.length : 0;
+  //   return averageLikes;
+  // });
   
-  const averageLikesPerUser = popularPostsPerUser.map(userPosts => {
-    const totalLikes = userPosts.posts.reduce((sum, post) => sum + post.likes, 0);
-    const averageLikes = userPosts.posts.length > 0 ? totalLikes / userPosts.posts.length : 0;
-    return averageLikes;
-  });
+  //  const overallAverageLikes = averageLikesPerUser.reduce((sum, avg) => sum + avg, 0) / averageLikesPerUser.length;
   
-   const overallAverageLikes = averageLikesPerUser.reduce((sum, avg) => sum + avg, 0) / averageLikesPerUser.length;
-  
-  console.log(overallAverageLikes);
+  // console.log(overallAverageLikes);
   

@@ -52,7 +52,7 @@ const users = [
     }
   ];
   
-  const popularPosts = users.flatMap(user =>
+  const popularPosts = users.map(user =>
     user.posts.filter(post => post.likes >= 10)
   );
   

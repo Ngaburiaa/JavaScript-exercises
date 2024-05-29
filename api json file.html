@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let data = [
+        {
+          id: 1,
+          imageUrl:
+            "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+          title: "Summer Music Festival",
+          price: 50,
+          date: "August 20, 2021",
+          location: "Central Park, New York City",
+          company: "Music Festivals Inc.",
+        },
+        {
+          id: 2,
+          imageUrl:
+            "https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+          title: "Food and Wine Expo",
+          price: 75,
+          date: "September 25, 2021",
+          location: "Moscone Center, San Francisco",
+          company: "Food and Wine Events LLC",
+        },
+        {
+          id: 3,
+          imageUrl:
+            "https://images.unsplash.com/photo-1618519764620-7403abdbdfe9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+          title: "Comic Con",
+          price: 35,
+          date: "October 15, 2021",
+          location: "Los Angeles Convention Center",
+          company: "Comic Con International",
+        },
+        {
+          id: 4,
+          imageUrl:
+            "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwYW5kJTIwZGVzaWduJTIwZmFpcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          title: "Art and Design Fair",
+          price: 20,
+          date: "November 12, 2021",
+          location: "Navy Pier, Chicago",
+          company: "Art and Design Expo LLC",
+        },
+        {
+          id: 5,
+          imageUrl:
+            "https://plus.unsplash.com/premium_photo-1661766479722-ddedc5dce339?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+          title: "Holiday Market",
+          price: 5,
+          date: "December 3, 2021",
+          location: "Union Square, New York City",
+          company: "Holiday Markets Inc.",
+        },
+        {
+          id: 6,
+          imageUrl:
+            "https://plus.unsplash.com/premium_photo-1661290419867-79072e8d5f00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29uY2VydCUyMHBhcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+          title: "Concert in the Park",
+          price: 20,
+          date: "August 20, 2022",
+          location: "Central Park, New York City",
+          company: "Live Nation",
+        },
+        {
+          id: 7,
+          imageUrl:
+            "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+          title: "Food and Wine Festival",
+          price: 50,
+          date: "September 15-18, 2022",
+          location: "Union Square, San Francisco",
+          company: "Taste of San Francisco",
+        },
+        {
+          id: 8,
+          imageUrl:
+            "https://plus.unsplash.com/premium_photo-1661602441396-67b89b6ac4d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+          title: "Summer Beach Party",
+          price: 15,
+          date: "July 3, 2022",
+          location: "Venice Beach, Los Angeles",
+          company: "LA Beach Parties",
+        },
+        {
+          id: 9,
+          imageUrl:
+            "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+          title: "Angular Nation Expo",
+          price: 35,
+          date: "October 1-3, 2022",
+          location: "Google Hall, San Fransico",
+          company: "ArtExpo NY",
+        },
+        {
+          id: 10,
+          imageUrl:
+            "https://images.unsplash.com/photo-1465310477141-6fb93167a273?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+          title: "Sports and Adventure Expo",
+          price: 20,
+          date: "May 20-22, 2022",
+          location: "McCormick Place, Chicago",
+          company: "Google",
+        },
+      ];
+      async function allItems() {
+        try {
+          let divContainer = document.createElement("div");
+          divContainer.style.display = "grid";
+          divContainer.style.gridTemplateColumns = "repeat(3,1fr)";
+          divContainer.style.justifyContent = "center";
+          divContainer.style.alignItems = "center";
+          divContainer.style.columnGap = "40px";
+          divContainer.style.rowGap = "40px";
+          divContainer.style.height = "1440px";
+          divContainer.style.width = "1440px";
+          document.body.appendChild(divContainer);
+
+          data.map((objItem) => {
+            const div1 = document.createElement("div");
+            const datee = document.createElement("p");
+            const titlee = document.createElement("p");
+            const companyy = document.createElement("p");
+            const locationn = document.createElement("p");
+            const pricee = document.createElement("p");
+            const image = document.createElement("img");
+            const button = document.createElement("button");
+
+            div1.appendChild(image);
+            div1.appendChild(titlee);
+            div1.appendChild(datee);
+            div1.appendChild(pricee);
+            div1.appendChild(companyy);
+            div1.appendChild(locationn);
+            div1.appendChild(button);
+
+            image.src = objItem.imageUrl;
+            titlee.textContent = objItem.title;
+            locationn.textContent = objItem.location;
+            pricee.textContent = objItem.price;
+            companyy.textContent = objItem.company;
+            datee.textContent = objItem.date;
+            button.textContent = "Buy now";
+            divContainer.appendChild(div1);
+
+            div1.style.width = "350px";
+            div1.style.height = "400px";
+            div1.style.border = "solid black 2px";
+            div1.style.textAlign = "center";
+            image.style.width = "350px";
+            image.style.height = "180px";
+            titlee.style.fontWeight = "800";
+            titlee.style.fontSize = "20px";
+            titlee.style.marginTop = "3px";
+            titlee.style.marginBottom = "3px";
+            datee.style.marginTop = "3px";
+            datee.style.marginBottom = "3px";
+            companyy.style.marginTop = "3px";
+            companyy.style.marginBottom = "3px";
+            pricee.style.marginTop = "3px";
+            pricee.style.marginBottom = "3px";
+            button.style.backgroundColor = "blue";
+            button.style.color = "white";
+            button.style.marginTop = "0";
+            button.style.padding = "10px";
+          });
+        } catch (error) {
+          throw alert(error);
+        }
+      }
+      allItems();
+    </script>
+  </body>
+</html>

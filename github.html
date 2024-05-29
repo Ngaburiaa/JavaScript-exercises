@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>GITHUB SEARCH TOOL</h1><br>
+    <script>
+      const div1 = document.createElement("div");
+      
+      document.body.style.backgroundColor="dodgerblue"
+      const divImage=document.createElement("div")
+      const divText=document.createElement("div")
+      
+      // document.body.style.justifyContent="center"
+      // document.body.style.display="flex"
+      // div1.style.display="grid"
+      // div1.style.gridTemplateColumns="150px"
+      // div1.style.justifyContent="center"
+      // div1.style.backgroundColor="gray"
+      div1.style.display="flex"
+      // document.body.style.display="flex"
+      // document.body.style.flexDirection="column"
+      // document.body.style.justifyContent="center"
+      
+      
+
+      const inputField = document.createElement("input");
+      document.body.appendChild(inputField);
+      const button = document.createElement("button");
+      document.body.appendChild(button);
+      document.body.appendChild(div1);
+      div1.appendChild(divImage)
+      div1.appendChild(divText)
+      button.textContent = "search github user";
+      button.setAttribute("onclick", "fetchApi()");
+      inputField.setAttribute("placeholder","Enter your github username")
+      const name = document.createElement("p");
+      const locationn = document.createElement("p");
+      const repos = document.createElement("p");
+      const image = document.createElement("img");
+      const bioo=document.createElement("p")
+
+      divText.appendChild(name);
+      divText.appendChild(locationn);
+      divText.appendChild(repos);
+      divImage.appendChild(image);
+      divText.appendChild(bioo)
+
+      image.style.borderRadius="50%"
+      image.style.height="200px"
+      image.style.width="200px"
+      divText.style.marginLeft="50px"
+      divText.style.marginTop="100px"
+      divText.style.fontSize="20px"
+      divImage.style.fontWeight="700px"
+      divImage.style.marginTop="100px"
+
+
+
+      const fetchApi = async () => {
+        const userValue = inputField.value;
+        const userData = await fetch(
+          `https://api.github.com/users/${userValue}`
+        ).then((response) =>
+          response
+            .json()
+
+            .then((response) => {
+              name.textContent = response.login;
+              locationn.textContent = response.location;
+              repos.textContent = response.public_repos;
+              image.src = response.avatar_url;
+              bioo.textContent=response.bio
+            })
+        );
+      };
+
+
+      inputField.style.height="40px"
+      button.style.height="40px"
+      button.style.marginLeft="50px"
+    </script>
+  </body>
+</html>
